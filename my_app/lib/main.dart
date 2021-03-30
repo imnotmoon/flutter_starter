@@ -46,15 +46,29 @@ class _RandomWordsState extends State<RandomWords> {
     );
   }
 
+  List<Widget> items = [];
+
   Widget _getRow(WordPair wordPair) {
     // 여기서 wordPair는 word[index].
     // 단어 하나
-    return Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Text(
-          wordPair.asCamelCase,
-          textScaleFactor: 1.8,
-          // style: TextStyle(fontSize: 10),
-        ));
+    return Column(
+      children: <Widget>[
+        ListTile(
+            title: Text(
+              wordPair.asCamelCase,
+              textScaleFactor: 1.3,
+              // style: TextStyle(fontSize: 10),
+            ),
+            trailing: Icon(Icons.favorite, color: Colors.redAccent)),
+        Divider(
+          thickness: 1,
+          color: Colors.grey[300],
+          height: 5, // padding이라고 보면 된다.
+          indent: 16,
+          endIndent: 16,
+        )
+      ],
+      crossAxisAlignment: CrossAxisAlignment.start,
+    );
   }
 }
