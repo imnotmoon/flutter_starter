@@ -8,20 +8,20 @@ Set<WordPair> _saved = Set<WordPair>();
 class WordListPage extends StatelessWidget {
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("Hello My First App"),
-        actions: <Widget>[
-          IconButton(
-              icon: Icon(Icons.favorite),
-              onPressed: () {
-                print("clicked action button!");
-                Navigator.of(context)
-                    .push(MaterialPageRoute(builder: (context) {
-                  return FavoriteListPage(_saved.toList());
-                }));
-              })
-        ],
-      ),
+      appBar: AppBar(title: Text("Hello My First App"), actions: <Widget>[
+        IconButton(
+            icon: Icon(Icons.favorite),
+            onPressed: () {
+              print("clicked action button!");
+              // Navigator.of(context)
+              //     .push(MaterialPageRoute(builder: (context) {
+              //   return FavoriteListPage(_saved.toList());
+              Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                      builder: (context) => FavoriteListPage(_saved.toList())));
+            })
+      ]),
       body: Center(child: RandomWords()),
     );
   }

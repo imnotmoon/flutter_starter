@@ -24,3 +24,24 @@ ListTile의 onTap : function
 3. set 안에 있는 단어의 경우 하트 아이콘을 채운다.
 
 ?메소드 : 파이썬이랑 문법이 똑같다
+
+
+
+- Navigator
+
+onTap : () { Navigator.of(context).push(MaterialPageRoute(builder: (context) {
+    return FavoriteListPage(_saved.toList());
+}
+}
+
+// Navigator가 화면을 이동시키는 객체. Navigator.push(context, 머터리얼 라우터(이동시킬 라우터를 리턴하는 콜백))
+onPressed: () {
+  Navigator.push(
+    context,
+    MaterialPageRoute(builder: (context) => SecondRoute()),
+  );
+}
+
+두가지 방식 모두 가능하다
+context, build 함수는 모든 위젯이 공통으로 가진다
+context : 부모 위젯으로부터 물려받음. 리액트에서 context와 유사한듯. 
