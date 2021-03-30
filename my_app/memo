@@ -45,3 +45,5 @@ onPressed: () {
 두가지 방식 모두 가능하다
 context, build 함수는 모든 위젯이 공통으로 가진다
 context : 부모 위젯으로부터 물려받음. 리액트에서 context와 유사한듯. 
+
+나올때는 Navigator.pop() 만 하면 된다.
