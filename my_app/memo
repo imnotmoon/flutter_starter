@@ -9,3 +9,18 @@ build 안의 위젯들을 어떻게 배열을 할지 => render 함수!
 StatefulWidget:
 상태 변화가 생길때마다 createState()를 해서 해당 인스턴스를 다시 생성.
 => build가 다시 실행
+
+
+ListTile
+Column과 Divider
+
+ListTile의 onTap : function
+
+- tap 했을때 하트 누르고 빼기 구현
+1. 눌린 아이템을 저장하는 set 변수
+2. onTap 했을 경우 set에 추가 / 다시 tap할 경우 제거
+    - stateful widget의 setStete() 안에 set을 조작하는 내용을 넣어야 한다
+    - 안그러면 set의 값이 변하지 않음.
+3. set 안에 있는 단어의 경우 하트 아이콘을 채운다.
+
+?메소드 : 파이썬이랑 문법이 똑같다

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:english_words/english_words.dart';
 
 void main() {
@@ -28,6 +29,7 @@ class RandomWords extends StatefulWidget {
 
 class _RandomWordsState extends State<RandomWords> {
   List<WordPair> words = [];
+  Set<WordPair> saved = Set<WordPair>();
 
   @override
   Widget build(BuildContext context) {
@@ -46,20 +48,33 @@ class _RandomWordsState extends State<RandomWords> {
     );
   }
 
-  List<Widget> items = [];
-
   Widget _getRow(WordPair wordPair) {
+    bool _isAlreadySaved = saved.contains(wordPair);
     // 여기서 wordPair는 word[index].
     // 단어 하나
     return Column(
       children: <Widget>[
         ListTile(
+            onTap: () {
+              // stateful widget : setState()를 실행하면 다시 render
+              //
+              setState(() {
+                if (_isAlreadySaved) {
+                  saved.remove(wordPair);
+                } else {
+                  saved.add(wordPair);
+                }
+              });
+              print(saved.toString());
+            },
             title: Text(
               wordPair.asCamelCase,
               textScaleFactor: 1.3,
               // style: TextStyle(fontSize: 10),
             ),
-            trailing: Icon(Icons.favorite, color: Colors.redAccent)),
+            trailing: Icon(
+                _isAlreadySaved ? Icons.favorite : Icons.favorite_border,
+                color: Colors.redAccent)),
         Divider(
           thickness: 1,
           color: Colors.grey[300],
