@@ -1,0 +1,5 @@
+flutter : ui toolkit
+-> 앱 GUI를 제공
+
+Container : div
+Scaffold : 기본 구조를 갖고 있음.
