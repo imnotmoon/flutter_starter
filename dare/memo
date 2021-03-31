@@ -3,3 +3,6 @@ flutter : ui toolkit
 
 Container : div
 Scaffold : 기본 구조를 갖고 있음.
+
+SingleChildScrollView
+키보드 올라와도 안깨짐
