@@ -1,7 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:logger/logger.dart';
 
-class HomePage extends StatelessWidget {
+class HomePage extends StatefulWidget {
   const HomePage({Key key}) : super(key: key);
+
+  @override
+  _HomePageState createState() => _HomePageState();
+}
+
+class _HomePageState extends State<HomePage> {
+  // TextEditingController를 통해서 텍스트필드를 컨트롤 할 수 있음.
+  TextEditingController _textEditingController = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -16,12 +25,16 @@ class HomePage extends StatelessWidget {
             children: [
               Expanded(
                 child: TextField(
+                  controller: _textEditingController,
                   decoration: InputDecoration(hintText: "Send a Message"),
+                  onSubmitted: _handleSubmitted,
                 ),
               ),
               SizedBox(width: 10),
               TextButton(
-                onPressed: () {},
+                onPressed: () {
+                  _handleSubmitted(_textEditingController.text);
+                },
                 child: Text("Send"),
               ),
             ],
@@ -29,5 +42,10 @@ class HomePage extends StatelessWidget {
         ),
       ),
     );
+  }
+
+  void _handleSubmitted(String text) {
+    Logger().d(text);
+    _textEditingController.clear();
   }
 }
