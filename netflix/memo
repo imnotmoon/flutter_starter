@@ -1,0 +1,4 @@
+1. 네비게이션 탭이 있는 앱 프로젝트 구조
+    - DefaultTabController
+    - TabBarView
+    - physics로 NeverScrollableScrollPhysics
